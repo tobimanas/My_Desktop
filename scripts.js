@@ -7,7 +7,18 @@ function startTime() {
     let s = today.getSeconds();
     m = checkTime(m);
     s = checkTime(s);
-    document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s;
+    if (h > 12) {
+        var apm = "PM";
+    }
+    else {
+        var apm = "AM";
+    }
+    
+    if (h > 12) {
+        h-=12;
+    }
+    
+    document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s + " " + apm;
     setTimeout(startTime, 1000);
 }
 
